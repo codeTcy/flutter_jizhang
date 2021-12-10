@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tcy_app/eventbus/event_bus.dart';
 import 'package:tcy_app/viewmodel/login_viewmodel.dart';
 import 'package:tdui/input/index.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,11 @@ class _PhoneLoginViewState extends State<PhoneLoginView> {
     super.initState();
     _user = new TextEditingController();
     _pass = new TextEditingController();
+    bus.on("登录成功跳转", (arg) {
+      if (arg["view"] == "login") {
+        Navigator.of(context).popAndPushNamed("menuView");
+      }
+    });
   }
 
   @override
@@ -160,7 +166,7 @@ class _PhoneLoginViewState extends State<PhoneLoginView> {
   void _loginAction() {
     context
         .read<LoginViewModel>()
-        .login(context, _user.text.toString(), _pass.text.toString());
+        .login(_user.text.toString(), _pass.text.toString());
   }
 
   void _registeAction() {

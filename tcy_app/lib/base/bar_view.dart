@@ -7,3 +7,12 @@ AppBar getAppBar(String title) {
     centerTitle: true,
   );
 }
+
+AppBar getAppBarAction(String title, List<Widget> actions) {
+  return AppBar(
+    title: Text(title),
+    elevation: 10,
+    centerTitle: true,
+    actions: actions,
+  );
+}

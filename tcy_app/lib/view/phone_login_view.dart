@@ -19,6 +19,7 @@ class _PhoneLoginViewState extends State<PhoneLoginView> {
     super.initState();
     _user = new TextEditingController();
     _pass = new TextEditingController();
+    // 订阅
     bus.on("登录成功跳转", (arg) {
       if (arg["view"] == "login") {
         Navigator.of(context).popAndPushNamed("menuView");
@@ -32,6 +33,8 @@ class _PhoneLoginViewState extends State<PhoneLoginView> {
     super.dispose();
     _user.dispose();
     _pass.dispose();
+    // 取消订阅
+    bus.off("登录成功跳转");
   }
 
   @override

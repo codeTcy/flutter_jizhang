@@ -1,14 +1,11 @@
 import 'package:tcy_app/global/Global.dart';
 import 'package:tcy_app/utils/rsa/rsa_utils.dart';
 
-Future LoginModel(String user, String pass) async {
-  String pwd = await encodeString(pass);
-  print(pwd);
+Future RegisterModel(String json) async {
   var result = await Global.getInstance().dio.post(
-    "/zxw/user",
+    "/zxw/user/register",
     queryParameters: {
-      "username": user,
-      "password": pwd,
+      "json": json,
     },
   );
   return result;

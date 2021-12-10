@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tcy_app/eventbus/event_bus.dart';
 import 'package:tcy_app/viewmodel/login_viewmodel.dart';
-import 'package:tdui/input/index.dart';
 import 'package:provider/provider.dart';
 
 class PhoneLoginView extends StatefulWidget {

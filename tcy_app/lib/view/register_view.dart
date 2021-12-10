@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tcy_app/base/bar_view.dart';
 import 'package:tcy_app/viewmodel/register_viewmodel.dart';
+import 'package:tdui/tdui.dart';
+import 'package:tdui/toast/toast.dart';
 
 class RegisterView extends StatefulWidget {
   @override
@@ -9,10 +12,20 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
+  TextEditingController _phone;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _phone = new TextEditingController();
+  }
+
   @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
+    _phone.dispose();
   }
 
   @override
@@ -30,6 +43,7 @@ class _RegisterViewState extends State<RegisterView> {
                 hintMaxLines: 1,
               ),
               autofocus: true,
+              controller: _phone,
             ),
             SizedBox(height: 16),
             Container(
@@ -75,7 +89,7 @@ class _RegisterViewState extends State<RegisterView> {
 
   void _registerAction() {
     if (context.read<RegisterViewModel>().getCheck == true) {
-      print("注册");
+      context.read<RegisterViewModel>().register(_phone.text);
     } else {
       print("请点击同意");
     }

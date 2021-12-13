@@ -34,63 +34,64 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            SizedBox(
-              width: double.infinity,
-              height: 600,
+        resizeToAvoidBottomInset: false,
+        body: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  height: 600,
+                ),
+                Container(
+                  height: 50,
+                  width: 300,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.blue,
+                    ),
+                    child: Text(
+                      "微信登录",
+                      style: TextStyle(color: Colors.black, fontSize: 17),
+                    ),
+                    onPressed: () {
+                      print("微信登录");
+                    },
+                  ),
+                ),
+                SizedBox(height: 16),
+                Container(
+                  height: 50,
+                  width: 300,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                    ),
+                    child: Text(
+                      "通过Apple登录",
+                      style: TextStyle(color: Colors.black, fontSize: 17),
+                    ),
+                    onPressed: () {
+                      print("通过Apple登录");
+                    },
+                  ),
+                ),
+                SizedBox(height: 40),
+                GestureDetector(
+                  child: Text(
+                    "更多登录方式",
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 12,
+                    ),
+                  ),
+                  onTap: _ontap,
+                ),
+              ],
             ),
-            Container(
-              height: 50,
-              width: 300,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
-                ),
-                child: Text(
-                  "微信登录",
-                  style: TextStyle(color: Colors.black, fontSize: 17),
-                ),
-                onPressed: () {
-                  print("微信登录");
-                },
-              ),
-            ),
-            SizedBox(height: 16),
-            Container(
-              height: 50,
-              width: 300,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                ),
-                child: Text(
-                  "通过Apple登录",
-                  style: TextStyle(color: Colors.black, fontSize: 17),
-                ),
-                onPressed: () {
-                  print("通过Apple登录");
-                },
-              ),
-            ),
-            SizedBox(height: 40),
-            GestureDetector(
-              child: Text(
-                "更多登录方式",
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                ),
-              ),
-              onTap: _ontap,
-            ),
-          ],
-        ),
-      ),
-    );
+          ),
+        ));
   }
 
   void loadData() async {

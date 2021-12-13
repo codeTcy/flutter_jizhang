@@ -42,124 +42,126 @@ class _PhoneLoginViewState extends State<PhoneLoginView> {
       resizeToAvoidBottomInset: false,
       body: Container(
         padding: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            SizedBox(height: 100),
-            TextField(
-              // keyboardType: TextInputType.phone,
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.phone_android),
-                hintText: "请输入手机号",
-                hintMaxLines: 1,
-              ),
-              controller: _user,
-              autofocus: true,
-              textInputAction: TextInputAction.next,
-            ),
-            SizedBox(height: 8),
-            TextField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.vpn_key_rounded),
-                hintText: "请输入密码",
-                hintMaxLines: 1,
-              ),
-              controller: _pass,
-              obscureText: true,
-              textInputAction: TextInputAction.send,
-            ),
-            SizedBox(height: 64),
-            Container(
-              width: double.infinity,
-              height: 50,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 100),
+              TextField(
+                // keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.phone_android),
+                  hintText: "请输入手机号",
+                  hintMaxLines: 1,
                 ),
-                child: Text(
-                  "登录",
-                  style: TextStyle(color: Colors.black, fontSize: 17),
-                ),
-                onPressed: _loginAction,
+                controller: _user,
+                autofocus: true,
+                textInputAction: TextInputAction.next,
               ),
-            ),
-            SizedBox(height: 16),
-            Container(
-              height: 30,
-              width: double.infinity,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    child: Container(
-                      child: Text(
-                        "找回密码",
-                        style: TextStyle(color: Colors.grey),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                    onTap: () {
-                      print("找回密码");
-                    },
+              SizedBox(height: 8),
+              TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.vpn_key_rounded),
+                  hintText: "请输入密码",
+                  hintMaxLines: 1,
+                ),
+                controller: _pass,
+                obscureText: true,
+                textInputAction: TextInputAction.send,
+              ),
+              SizedBox(height: 64),
+              Container(
+                width: double.infinity,
+                height: 50,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
                   ),
-                  GestureDetector(
-                    child: Container(
-                      child: Text(
-                        "注册",
-                        style: TextStyle(color: Colors.grey),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                    onTap: _registeAction,
+                  child: Text(
+                    "登录",
+                    style: TextStyle(color: Colors.black, fontSize: 17),
                   ),
-                ],
-              ),
-            ),
-            SizedBox(height: 250),
-            Container(
-              child: Text(
-                "其他登录方式",
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
+                  onPressed: _loginAction,
                 ),
               ),
-            ),
-            SizedBox(height: 16),
-            Container(
-              width: double.infinity,
-              height: 50,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
+              SizedBox(height: 16),
+              Container(
+                height: 30,
+                width: double.infinity,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      child: Container(
+                        child: Text(
+                          "找回密码",
+                          style: TextStyle(color: Colors.grey),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      onTap: () {
+                        print("找回密码");
+                      },
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        child: Text(
+                          "注册",
+                          style: TextStyle(color: Colors.grey),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      onTap: _registeAction,
+                    ),
+                  ],
                 ),
+              ),
+              SizedBox(height: 250),
+              Container(
                 child: Text(
-                  "微信登录",
-                  style: TextStyle(color: Colors.black, fontSize: 17),
+                  "其他登录方式",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                  ),
                 ),
-                onPressed: () {
-                  print("微信登录");
-                },
               ),
-            ),
-            SizedBox(height: 16),
-            Container(
-              width: double.infinity,
-              height: 50,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+              SizedBox(height: 16),
+              Container(
+                width: double.infinity,
+                height: 50,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
+                  ),
+                  child: Text(
+                    "微信登录",
+                    style: TextStyle(color: Colors.black, fontSize: 17),
+                  ),
+                  onPressed: () {
+                    print("微信登录");
+                  },
                 ),
-                child: Text(
-                  "通过Apple登录",
-                  style: TextStyle(color: Colors.black, fontSize: 17),
-                ),
-                onPressed: () {
-                  print("通过Apple登录");
-                },
               ),
-            ),
-          ],
+              SizedBox(height: 16),
+              Container(
+                width: double.infinity,
+                height: 50,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                  ),
+                  child: Text(
+                    "通过Apple登录",
+                    style: TextStyle(color: Colors.black, fontSize: 17),
+                  ),
+                  onPressed: () {
+                    print("通过Apple登录");
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

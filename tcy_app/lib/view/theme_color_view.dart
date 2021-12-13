@@ -15,10 +15,12 @@ class _ThemeColorViewState extends State<ThemeColorView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: getAppBar("设置主题颜色"),
-      body: ListView.builder(
-        itemBuilder: _itemBuilder,
-        itemCount: themes.length,
-        shrinkWrap: true,
+      body: SingleChildScrollView(
+        child: ListView.builder(
+          itemBuilder: _itemBuilder,
+          itemCount: themes.length,
+          shrinkWrap: true,
+        ),
       ),
     );
   }

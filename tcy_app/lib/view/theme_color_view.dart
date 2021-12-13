@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tcy_app/base/bar_view.dart';
 import 'package:tcy_app/global/ThemeColor.dart';
 import 'package:tcy_app/viewmodel/theme_color_viewmodel.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ThemeColorView extends StatefulWidget {
   @override
@@ -27,13 +28,13 @@ class _ThemeColorViewState extends State<ThemeColorView> {
 
   Widget _itemBuilder(BuildContext context, int index) {
     return Padding(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.all(20.r),
       child: GestureDetector(
         child: Container(
           width: double.infinity,
-          height: 50,
+          height: 50.h,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(5)),
+            borderRadius: BorderRadius.all(Radius.circular(5.r)),
             color: themes[index],
           ),
           child: Provider.of<ThemeColorViewModel>(context).getColor == index
@@ -45,7 +46,7 @@ class _ThemeColorViewState extends State<ThemeColorView> {
                       color: Colors.white,
                     ),
                     SizedBox(
-                      width: 16,
+                      width: 16.w,
                     )
                   ],
                 )

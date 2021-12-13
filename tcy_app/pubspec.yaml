@@ -43,6 +43,7 @@ dependencies:
   flutter_luban: ^0.1.11
   provider: ^4.3.2+3
   flutter_swiper: ^1.1.6
+  flutter_screenutil: ^4.0.4+1
 
 dev_dependencies:
   flutter_test:

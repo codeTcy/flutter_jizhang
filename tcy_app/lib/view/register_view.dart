@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tcy_app/base/bar_view.dart';
 import 'package:tcy_app/viewmodel/register_viewmodel.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class RegisterView extends StatefulWidget {
   @override
   _RegisterViewState createState() => _RegisterViewState();
@@ -32,7 +32,7 @@ class _RegisterViewState extends State<RegisterView> {
       appBar: getAppBar("注册"),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(20.r),
           child: Column(
             children: [
               TextField(
@@ -44,24 +44,24 @@ class _RegisterViewState extends State<RegisterView> {
                 autofocus: true,
                 controller: _phone,
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 16.h),
               Container(
                 width: double.infinity,
                 child: CheckboxListTile(
-                  contentPadding: EdgeInsets.all(3),
+                  contentPadding: EdgeInsets.all(3.r),
                   title: Text(
                     "已阅读并同意",
-                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                    style: TextStyle(fontSize: 12.sp, color: Colors.grey),
                   ),
                   controlAffinity: ListTileControlAffinity.leading,
                   value: Provider.of<RegisterViewModel>(context).getCheck,
                   onChanged: _setOnChange,
                 ),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 16.h),
               Container(
                 width: double.infinity,
-                height: 50,
+                height: 50.h,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary:
@@ -71,7 +71,7 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                   child: Text(
                     "注册",
-                    style: TextStyle(color: Colors.black, fontSize: 17),
+                    style: TextStyle(color: Colors.black, fontSize: 17.sp),
                   ),
                   onPressed: _registerAction,
                 ),

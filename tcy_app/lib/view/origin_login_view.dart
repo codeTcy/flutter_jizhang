@@ -5,6 +5,7 @@ import 'package:tcy_app/eventbus/event_bus.dart';
 import 'package:tcy_app/global/Global.dart';
 import 'package:provider/provider.dart';
 import 'package:tcy_app/viewmodel/login_viewmodel.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginView extends StatefulWidget {
   @override
@@ -37,53 +38,53 @@ class _LoginViewState extends State<LoginView> {
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(20.r),
             child: Column(
               children: [
                 SizedBox(
                   width: double.infinity,
-                  height: 600,
+                  height: 600.h,
                 ),
                 Container(
-                  height: 50,
-                  width: 300,
+                  height: 50.h,
+                  width: 300.w,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: Colors.blue,
                     ),
                     child: Text(
                       "微信登录",
-                      style: TextStyle(color: Colors.black, fontSize: 17),
+                      style: TextStyle(color: Colors.black, fontSize: 17.sp),
                     ),
                     onPressed: () {
                       print("微信登录");
                     },
                   ),
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 Container(
-                  height: 50,
-                  width: 300,
+                  height: 50.h,
+                  width: 300.w,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: Colors.white,
                     ),
                     child: Text(
                       "通过Apple登录",
-                      style: TextStyle(color: Colors.black, fontSize: 17),
+                      style: TextStyle(color: Colors.black, fontSize: 17.sp),
                     ),
                     onPressed: () {
                       print("通过Apple登录");
                     },
                   ),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 40.h),
                 GestureDetector(
                   child: Text(
                     "更多登录方式",
                     style: TextStyle(
                       color: Colors.grey,
-                      fontSize: 12,
+                      fontSize: 12.sp,
                     ),
                   ),
                   onTap: _ontap,

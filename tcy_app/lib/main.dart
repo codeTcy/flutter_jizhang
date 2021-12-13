@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil_init.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tcy_app/routers/router.dart';
@@ -32,15 +33,38 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: navigatorKey,
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData.light().copyWith(
-        primaryColor:
-            themes[Provider.of<ThemeColorViewModel>(context).getColor],
+    return ScreenUtilInit(
+      designSize: Size(411, 823),
+      builder: () => MaterialApp(
+        navigatorKey: navigatorKey,
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData.light().copyWith(
+          primaryColor:
+              themes[Provider.of<ThemeColorViewModel>(context).getColor],
+        ),
+        routes: routes,
+        builder: (context, widget) {
+          // EasyLoading.init();
+          return MediaQuery(
+            //Setting font does not change with system font size
+            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+            child: widget,
+          );
+        },
+        // builder: EasyLoading.init(),
       ),
-      routes: routes,
     );
+
+    // return MaterialApp(
+    //   navigatorKey: navigatorKey,
+    //   debugShowCheckedModeBanner: false,
+    //   title: 'Flutter Demo',
+    //   theme: ThemeData.light().copyWith(
+    //     primaryColor:
+    //         themes[Provider.of<ThemeColorViewModel>(context).getColor],
+    //   ),
+    //   routes: routes,
+    // );
   }
 }

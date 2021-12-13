@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tcy_app/eventbus/event_bus.dart';
 import 'package:tcy_app/viewmodel/login_viewmodel.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PhoneLoginView extends StatefulWidget {
   @override
@@ -41,11 +42,11 @@ class _PhoneLoginViewState extends State<PhoneLoginView> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(20.r),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 100),
+              SizedBox(height: 100.h),
               TextField(
                 // keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
@@ -57,7 +58,7 @@ class _PhoneLoginViewState extends State<PhoneLoginView> {
                 autofocus: true,
                 textInputAction: TextInputAction.next,
               ),
-              SizedBox(height: 8),
+              SizedBox(height: 8.h),
               TextField(
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.vpn_key_rounded),
@@ -68,24 +69,24 @@ class _PhoneLoginViewState extends State<PhoneLoginView> {
                 obscureText: true,
                 textInputAction: TextInputAction.send,
               ),
-              SizedBox(height: 64),
+              SizedBox(height: 64.h),
               Container(
                 width: double.infinity,
-                height: 50,
+                height: 50.h,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blue,
                   ),
                   child: Text(
                     "登录",
-                    style: TextStyle(color: Colors.black, fontSize: 17),
+                    style: TextStyle(color: Colors.black, fontSize: 17.sp),
                   ),
                   onPressed: _loginAction,
                 ),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 16.h),
               Container(
-                height: 30,
+                height: 30.h,
                 width: double.infinity,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,44 +117,44 @@ class _PhoneLoginViewState extends State<PhoneLoginView> {
                   ],
                 ),
               ),
-              SizedBox(height: 250),
+              SizedBox(height: 250.h),
               Container(
                 child: Text(
                   "其他登录方式",
                   style: TextStyle(
                     color: Colors.grey,
-                    fontSize: 12,
+                    fontSize: 12.sp,
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 16.h),
               Container(
                 width: double.infinity,
-                height: 50,
+                height: 50.h,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blue,
                   ),
                   child: Text(
                     "微信登录",
-                    style: TextStyle(color: Colors.black, fontSize: 17),
+                    style: TextStyle(color: Colors.black, fontSize: 17.sp),
                   ),
                   onPressed: () {
                     print("微信登录");
                   },
                 ),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 16.h),
               Container(
                 width: double.infinity,
-                height: 50,
+                height: 50.h,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.white,
                   ),
                   child: Text(
                     "通过Apple登录",
-                    style: TextStyle(color: Colors.black, fontSize: 17),
+                    style: TextStyle(color: Colors.black, fontSize: 17.sp),
                   ),
                   onPressed: () {
                     print("通过Apple登录");

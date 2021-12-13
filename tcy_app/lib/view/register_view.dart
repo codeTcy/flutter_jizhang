@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tcy_app/base/bar_view.dart';
 import 'package:tcy_app/viewmodel/register_viewmodel.dart';
-import 'package:tdui/tdui.dart';
-import 'package:tdui/toast/toast.dart';
 
 class RegisterView extends StatefulWidget {
   @override

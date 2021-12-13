@@ -43,10 +43,6 @@ class RegisterViewModel extends ChangeNotifier {
     print(result);
 
     if (result.data["success"]) {
-      // Navigator.pop(navigatorKey.currentContext, {
-      //   "user": user,
-      //   "pass": pass,
-      // });
       print(result.data["msg"]);
     } else {
       // EasyLoading.showError(result.data["msg"]);

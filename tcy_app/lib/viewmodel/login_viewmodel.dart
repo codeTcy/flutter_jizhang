@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:tcy_app/eventbus/event_bus.dart';
 import 'package:tcy_app/main.dart';
 import 'package:tcy_app/model/login_model.dart';
+import 'package:tcy_app/utils/event_utils.dart';
 import 'package:tdui/tdui.dart';
 
 class LoginViewModel extends ChangeNotifier {

@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tcy_app/eventbus/event_bus.dart';
+import 'package:tcy_app/global/Global.dart';
+import 'package:provider/provider.dart';
+import 'package:tcy_app/viewmodel/login_viewmodel.dart';
 
 class LoginView extends StatefulWidget {
   @override
@@ -7,6 +12,25 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    bus.on("Token登录成功", (arg) {
+      if (arg["view"] == "originLogin") {
+        Navigator.of(context).popAndPushNamed("menuView");
+      }
+    });
+    loadData();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    bus.off("Token登录成功");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,6 +91,16 @@ class _LoginViewState extends State<LoginView> {
         ),
       ),
     );
+  }
+
+  void loadData() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    String token = await sp.getString("token");
+    if (token != null) {
+      print("我的Token:" + token);
+      Global.getInstance().dio.options.headers["token"] = token;
+      context.read<LoginViewModel>().loginByToken();
+    }
   }
 
   void _ontap() {

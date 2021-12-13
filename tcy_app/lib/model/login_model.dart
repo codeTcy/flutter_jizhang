@@ -13,3 +13,7 @@ Future LoginModel(String user, String pass) async {
   );
   return result;
 }
+
+Future LoginTokenModel() async {
+  return await Global.getInstance().dio.get("/zxw/user");
+}

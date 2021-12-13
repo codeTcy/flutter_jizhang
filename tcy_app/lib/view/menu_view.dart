@@ -10,17 +10,22 @@ class _MenuViewState extends State<MenuView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBarAction(
-        "菜单",
-        [
+      appBar: getAppBarActionAndLeading(
+          "菜单",
+          [
+            IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {
+                Navigator.of(context).pushNamed("themeColorView");
+              },
+            ),
+          ],
           IconButton(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.home),
             onPressed: () {
-              Navigator.of(context).pushNamed("themeColorView");
+              Navigator.of(context).popAndPushNamed("/");
             },
-          ),
-        ],
-      ),
+          )),
     );
   }
 }
